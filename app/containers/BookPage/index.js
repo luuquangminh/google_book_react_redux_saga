@@ -6,19 +6,18 @@
 
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import PropTypes from 'prop-types';
-import H1 from 'components/H1';
-import SearchBox from './components/SearchBox';
-import BookList from './components/BookList';
-import { DAEMON } from 'utils/constants';
-import messages from './messages';
+import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import injectReducer from 'utils/injectReducer';
 import { compose, bindActionCreators } from 'redux';
-import saga from './saga';
+import PropTypes from 'prop-types';
+import { DAEMON } from 'utils/constants';
 import injectSaga from 'utils/injectSaga';
+import saga from './saga';
 import reducer from './reducer';
-import { createStructuredSelector } from 'reselect';
+import SearchBox from './components/SearchBox';
+import BookList from './components/BookList';
+
 import { loadBookRepos } from './actions';
 import { makeSelectBooks, makeSelectTerm, makeSelectisLoading, makeSelectisLoaded } from '../App/selectors';
 export class BookPage extends Component {
@@ -37,8 +36,8 @@ export class BookPage extends Component {
 }
 BookPage.propTypes = {
   isLoading: PropTypes.bool,
-  isLoaded: PropTypes.bool,
-  //books: PropTypes.array,
+  // isLoaded: PropTypes.bool,
+  // books: PropTypes.array,
   // term: PropTypes.string,
   actions: PropTypes.object,
   books: PropTypes.oneOfType([

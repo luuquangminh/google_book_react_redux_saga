@@ -1,4 +1,4 @@
-import { Col, Thumbnail, Card} from 'react-bootstrap';
+import { Col, Thumbnail } from 'react-bootstrap';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bookIcon from './bookIcon.svg';
