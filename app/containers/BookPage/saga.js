@@ -7,15 +7,14 @@ import { LOAD_BOOK_REPOS } from 'containers/App/constants';
 import { loadBookReposSuccess, loadBookReposError } from 'containers/BookPage/actions';
 
 import request from 'utils/request';
-import { makeSelectTerm } from 'containers/HomePage/selectors';
+import { makeSelectTerm } from 'containers/App/selectors';
 
 /**
  * Github repos request/response handler
  */
-export function* getBookRepos(action){
-
+export function* getBookRepos(action) {
   // Select username from store
-  const term = action.search;    console.log(term);
+  const term = yield select(makeSelectTerm(action.term));
   const requestURL = `https://www.googleapis.com/books/v1/volumes?q=${term}`;
 
   try {

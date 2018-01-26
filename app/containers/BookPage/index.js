@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import H1 from 'components/H1';
 import SearchBox from './components/SearchBox';
 import BookList from './components/BookList';
-
+import { DAEMON } from 'utils/constants';
 import messages from './messages';
 import { connect } from 'react-redux';
 import injectReducer from 'utils/injectReducer';
@@ -38,9 +38,13 @@ export class BookPage extends Component {
 BookPage.propTypes = {
   isLoading: PropTypes.bool,
   isLoaded: PropTypes.bool,
-  books: PropTypes.array,
+  //books: PropTypes.array,
   // term: PropTypes.string,
   actions: PropTypes.object,
+  books: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -53,7 +57,7 @@ const mapStateToProps = createStructuredSelector({
   isLoaded: makeSelectisLoaded(),
 });
 const withReducer = injectReducer({ key: 'books', reducer });
-const withSaga = injectSaga({ key: 'books', saga });
+const withSaga = injectSaga({ key: 'books', saga, mode: DAEMON });
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(withSaga, withConnect, withReducer)(BookPage);

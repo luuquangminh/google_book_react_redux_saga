@@ -22,16 +22,21 @@ export class SearchBox extends Component {
 
   render() {
     return (
-      <Row>
-        <input
-          type="text"
-          id="txtName"
-          name="name"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <Button onClick={this.handleSubmit} >Search</Button>
-        <h1>{this.state.value}</h1>
+      <Row className="show-grid">
+        <h2 className="landing-title">Google Books</h2>
+        <FormGroup onSubmit={this.handleSubmit} >
+          <InputGroup>
+            <FormControl
+              type="text"
+              value={this.state.value}
+              placeholder="Search Books"
+              onChange={this.handleChange}
+            />
+            <InputGroup.Button>
+              <Button onClick={this.handleSubmit}>Search</Button>
+            </InputGroup.Button>
+          </InputGroup>
+        </FormGroup>
       </Row>
 
 

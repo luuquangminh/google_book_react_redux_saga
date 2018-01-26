@@ -1,25 +1,24 @@
+import PropTypes from 'prop-types';
 import { Row, FormGroup, FormControl, InputGroup, Button, Form } from 'react-bootstrap';
 import React, { Component } from 'react';
 import BookItem from '../BookItem';
-import PropTypes from 'prop-types';
-
+import './styles.css';
 export class BookList extends Component {
-  renderBooks() { 
-    return this.props.books.map((book) => {
-
-    return <BookItem book={book} key={book.id} />
-});
+  renderBooks() {
+    return this.props.books.map((book) => <BookItem book={book} key={book.id} />);
   }
-
   render() {
     return (
-      <div>
+      <div className="books">
         {this.renderBooks()}
       </div>
     );
   }
 }
 BookList.propTypes = {
-  books: PropTypes.array,
+  books: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
 };
 export default BookList;
