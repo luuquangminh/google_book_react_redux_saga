@@ -21,11 +21,16 @@ import {
 // The initial state of the App
 const initialState = fromJS({
   loading: false,
+  isloading: false,
+  isloaded: true,
   error: false,
+  errors: [],
   currentUser: false,
   userData: {
     repositories: false,
   },
+  termSearch: '',
+  bookData: [],
 });
 
 function appReducer(state = initialState, action) {

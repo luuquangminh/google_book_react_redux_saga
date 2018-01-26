@@ -13,3 +13,9 @@ export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
 export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
 export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 export const DEFAULT_LOCALE = 'en';
+//Book
+export const LOAD_BOOK_REPOS = 'boilerplate/App/LOAD_BOOK_REPOS';
+export const LOAD_BOOK_REPOS_SUCCESS = 'boilerplate/App/LOAD_BOOK_REPOS_SUCCESS';
+export const LOAD_BOOK_REPOS_ERROR = 'boilerplate/App/LOAD_BOOK_REPOS_ERROR';
+export const LOAD_BOOK_REPOS_LOADING = 'boilerplate/App/LOAD_BOOK_REPOS_LOADING';
+export const LOAD_BOOK_REPOS_LOADED = 'boilerplate/App/LOAD_BOOK_REPOS_LOADED';
