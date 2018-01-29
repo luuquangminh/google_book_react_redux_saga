@@ -1,19 +1,25 @@
-import { Col, Thumbnail } from 'react-bootstrap';
+
+import { Card } from 'react-materialize';
+import { Col } from 'react-bootstrap';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import bookIcon from './bookIcon.svg';
 export class BookItem extends Component {
+  hadelsubmit() {
+
+  }
   render() {
     const { book } = this.props;
     return (
-      <Col xs={6} md={4}>
-        <Thumbnail
-          src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : bookIcon}
-          alt={book.volumeInfo.subtitle}
-        >
+      <Col s={2} md={4}>
+        <Card className="medium" title={book.volumeInfo.title}>
           <h5><a href={book.infoLink} target="_blank">{book.volumeInfo.subtitle}</a></h5>
-          { book.volumeInfo.authors && <p>Authors: {book.volumeInfo.authors.map((author, id) => <span key={id}>{author}</span>)}</p>}
-        </Thumbnail>
+          { book.volumeInfo.authors && <p>Authors: {book.volumeInfo.authors.map((author) => <span key={author}>{author}</span>)}</p>}
+          <img
+            className="book-wrapper__image"
+            src={this.props.book.volumeInfo.imageLinks.thumbnail}
+            alt={this.props.book.volumeInfo.title}
+          />
+        </Card>
       </Col>
     );
   }
