@@ -4,14 +4,13 @@ import { Col } from 'react-bootstrap';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 export class BookItem extends Component {
-  hadelsubmit() {
-
+  setInteval() {
   }
   render() {
     const { book } = this.props;
     return (
-      <Col s={2} md={4}>
-        <Card className="medium" title={book.volumeInfo.title}>
+      <Col md={4}>
+        <Card className="large" title={book.volumeInfo.title}>
           <h5><a href={book.infoLink} target="_blank">{book.volumeInfo.subtitle}</a></h5>
           { book.volumeInfo.authors && <p>Authors: {book.volumeInfo.authors.map((author) => <span key={author}>{author}</span>)}</p>}
           <img

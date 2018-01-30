@@ -1,31 +1,14 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-
-import A from './A';
-import Img from './Img';
-import NavBar from './NavBar';
-import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
-import messages from './messages';
-
+import { Navbar, NavItem } from 'react-materialize';
+import styles from './header.css';
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-        </A>
-        <NavBar>
-          <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
-          </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
-          </HeaderLink>
-          <HeaderLink to="/books">
-            <FormattedMessage {...messages.books} />
-          </HeaderLink>
-        </NavBar>
+        <Navbar className={styles.Nav} brand="Google Books" left>
+          <NavItem href="/" ><h1>Books</h1></NavItem>
+          <NavItem href="/abouts"><h1>Abouts</h1></NavItem>
+        </Navbar>
       </div>
     );
   }

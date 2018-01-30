@@ -26,7 +26,7 @@ export class SearchBox extends Component {
       <Row className="show-grid">
         <Input
           className={styles.input}
-          s={11}
+          s={6}
           label="Search books"
           type="text"
           value={this.state.value}

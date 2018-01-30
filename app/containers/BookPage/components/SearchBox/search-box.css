@@ -3,10 +3,9 @@ input{
 
 }
 button{
-    text-transform: uppercase;
-    border-radius: 0;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 0;
-    position: absolute;
+background: rgb(0, 188, 212) !important
+}
+
+title{
+    font-size: 100px !important;
 }

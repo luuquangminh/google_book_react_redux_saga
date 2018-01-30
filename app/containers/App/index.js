@@ -11,8 +11,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
+import AboutPage from 'containers/AboutPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import BookPage from 'containers/BookPage/Loadable';
@@ -37,12 +36,13 @@ export default function App() {
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
       <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="/books" component={BookPage} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+      <div>
+        <Switch>
+          <Route path="/abouts" component={AboutPage} />
+          <Route exact path="/" component={BookPage} />
+          <Route path="" component={NotFoundPage} />
+        </Switch>
+      </div>
       <Footer />
     </AppWrapper>
   );
