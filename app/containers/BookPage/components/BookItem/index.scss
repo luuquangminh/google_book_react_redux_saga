@@ -1,0 +1,74 @@
+.book {
+    margin: 0.5rem auto;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    transition: 0.5s all ease-in-out;
+  
+    &:hover {
+      border: 1px solid #767676;
+    }
+  
+    > .book-wrapper {
+      position: relative;
+      padding: 1rem;
+      display: flex;
+      flex-flow: column nowrap;
+      height: calc(100% - 2rem);
+      > .book-wrapper__title {
+        text-align: center;
+        margin: 0;
+        word-wrap: break-word;
+      }
+      > .book-wrapper__subtitle {
+        text-align: center;
+      }
+      > .book-wrapper__description {
+        text-align: justify;
+      }
+      > .book-wrapper__image {
+        display: block;
+        width: auto;
+        height: auto;
+        align-self: center;
+        min-height: 1vh;
+        margin: 0 auto;
+      }
+      > .book-wrapper__link {
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        color: white;
+        font-weight: 700;
+        margin-top: auto;
+        outline: 0;
+        border: 0;
+        background-color: orange;
+        text-align: center;
+  
+        &:active, &:focus, &:hover, &:visited {
+          color: white;
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 576px) {
+    .book {
+      flex: 0 1 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .book {
+      flex: 0 1 calc(50% - 1rem);
+      max-width: calc(50% - 1rem)
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .book {
+      flex: 0 1 calc(33.3% - 1rem);
+      max-width: calc(33.3% - 1rem);
+    }
+  }
