@@ -14,5 +14,9 @@ export default defineMessages({
     id: 'boilerplate.components.Header.abouts',
     defaultMessage: 'Abouts',
   },
+ collections: {
+    id: 'boilerplate.components.Header.conlections',
+    defaultMessage: 'Collections',
+  },
 
 });

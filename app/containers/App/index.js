@@ -15,7 +15,9 @@ import AboutPage from 'containers/AboutPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import BookPage from 'containers/BookPage/Loadable';
+import BookCollection from 'containers/BookCollection/Loadable';
 import Footer from 'components/Footer';
+import BookDetail from 'containers/BookPage/components/BookDetail';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -39,6 +41,8 @@ export default function App() {
       <div>
         <Switch>
           <Route path="/abouts" component={AboutPage} />
+          <Route path="/book/:id" component={BookDetail} />
+          <Route path="/collections" component={BookCollection} />
           <Route exact path="/" component={BookPage} />
           <Route path="" component={NotFoundPage} />
         </Switch>

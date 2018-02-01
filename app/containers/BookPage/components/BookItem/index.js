@@ -7,17 +7,13 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import PropTypes from 'prop-types';
 
 
-export class BookItem extends Component {
-  setInteval() {
-  }
-  render() {
-    const { book, fullVersion } = this.props;
+const BookItem = ({book, fullVersion,})=> {
     return (
       (<Col md={4}>
         <Card className="large">
           <strong><LinesEllipsis
             text={book.volumeInfo.title}
-            maxLine="3"
+            maxLine="2"
             ellipsis="..."
             trimRight
             basedOn="letters"
@@ -25,11 +21,11 @@ export class BookItem extends Component {
           <h5><a href={book.infoLink} target="_blank">{book.volumeInfo.subtitle}</a></h5>
           <h5>publishedDate: <strong>{book.volumeInfo.publishedDate}</strong></h5>
           { book.volumeInfo.authors && <p>Authors: {book.volumeInfo.authors.map((author) => <span key={author}>{author}</span>)}</p>}
-          {this.props.book.volumeInfo.imageLinks && this.props.book.volumeInfo.imageLinks.thumbnail && (
+          {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
             <img
               className="book-wrapper__image"
-              src={this.props.book.volumeInfo.imageLinks.thumbnail}
-              alt={this.props.book.volumeInfo.title}
+              src={book.volumeInfo.imageLinks.thumbnail}
+              alt={book.volumeInfo.title}
             />
           )}
           <LinesEllipsis
@@ -49,7 +45,6 @@ export class BookItem extends Component {
       </Col>)
     );
   }
-    }
 
 BookItem.propTypes = {
   book: PropTypes.oneOfType([

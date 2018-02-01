@@ -6,8 +6,10 @@ import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import bookReducer from 'containers/BookPage/reducer';
+import bookCollectionReducer from 'containers/BookCollection/reducer';
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
+import bookDetailReducer from 'containers/BookPage/components/BookDetail/reducer';
 
 /*
  * routeReducer
@@ -45,6 +47,8 @@ export default function createReducer(injectedReducers) {
     route: routeReducer,
     books: bookReducer,
     global: globalReducer,
+    bookDetail: bookDetailReducer,
+    bookCollection: bookCollectionReducer,
     language: languageProviderReducer,
     ...injectedReducers,
   });

@@ -5,9 +5,10 @@
 import { createSelector } from 'reselect';
 
 const selectGlobal = (state) => state.get('global');
-
+const selectBookDetail= (state) => state.get('bookDetail');
 const selectRoute = (state) => state.get('route');
 const selectBook = (state) => state.get('books');
+const selectBookCollection =(state)=> state.get('bookCollection');
 const makeSelectCurrentUser = () => createSelector(
   selectGlobal,
   (globalState) => globalState.get('currentUser')
@@ -37,9 +38,27 @@ const makeSelectLocation = () => createSelector(
 );
 const makeSelectBooks = () => createSelector(
   selectBook,
-(bookState) => { console.log(bookState);
+(bookState) => {
   return bookState.get('bookData');
   
+}
+);
+const makeSelectBook = () => createSelector(
+  selectBookDetail,
+(bookDetailState) => {
+  return bookDetailState.get('book');
+}
+);
+const makeSelectInCollection = () => createSelector(
+  selectBookDetail,
+  (bookDetailState) => {
+  return bookDetailState.get('inCollection');
+  }
+);
+const makeSelectBookCollection = () => createSelector(
+  selectBookCollection,
+(bookCollectionState) => {
+  return bookCollectionState.get('bookCollections');
 }
 );
 const makeSelectisLoading = () => createSelector(
@@ -61,4 +80,7 @@ export {
   makeSelectBooks,
   makeSelectisLoading,
   makeSelectisLoaded,
+  makeSelectBook,
+  makeSelectBookCollection,
+  makeSelectInCollection,
 };
