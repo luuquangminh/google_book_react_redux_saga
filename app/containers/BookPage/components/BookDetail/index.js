@@ -8,6 +8,9 @@ import injectSaga from 'utils/injectSaga';
 import { DAEMON } from 'utils/constants';
 import { loadBookDetailRepos, removeFromCollection, addToCollection } from './actions';
 import injectReducer from 'utils/injectReducer';
+import LinesEllipsis from 'react-lines-ellipsis';
+import { Card } from 'react-materialize';
+import { Col } from 'react-bootstrap';
 import saga from './saga';
 import reducer from './reducer';
 import { Button } from 'react-materialize';
@@ -38,13 +41,39 @@ class BookDetail extends  Component {
            button= <Button className="button" onClick={() =>{this.handleAdd()}}>Remove from Collection </Button>
         }
         return(
-            <div> {book.id}<div>{button}</div></div>
+            <Col md={12}>
+                <Card className="large">
+                  <strong><LinesEllipsis
+                    text={book.volumeInfo.title}
+                    maxLine="2"
+                    ellipsis="..."
+                    trimRight
+                    basedOn="letters"
+                  /></strong>
+                  <h5><a href={book.infoLink} target="_blank">{book.volumeInfo.subtitle}</a></h5>
+                  <h5>publishedDate: <strong>{book.volumeInfo.publishedDate}</strong></h5>
+                  { book.volumeInfo.authors && <p>Authors: {book.volumeInfo.authors.map((author) => <span key={author}>{author}</span>)}</p>}
+                  {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
+                    <img
+                      className="book-wrapper__image"
+                      src={book.volumeInfo.imageLinks.thumbnail}
+                      alt={book.volumeInfo.title}
+                    />
+                  )}
+                  <LinesEllipsis
+                    text={book.volumeInfo.description}
+                    maxLine="10"
+                    ellipsis="..."
+                    trimRight
+                    basedOn="letters"
+                  />
+                <div>{button}</div>
+                </Card>
+            </Col>
          
-        )
+        );
     }
-    
 }
-
 BookDetail.propTypes = {
     isLoading: PropTypes.bool,
     // isLoaded: PropTypes.bool,

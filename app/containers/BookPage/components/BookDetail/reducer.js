@@ -25,7 +25,7 @@ const initialState = fromJS({
   isloading: false,
   isloaded: true,
   errors: [],
-  book: {},
+  book: null,
   inCollection: false,
 });
 function bookDetailReducer(state = initialState, action) {
@@ -45,7 +45,8 @@ function bookDetailReducer(state = initialState, action) {
       return state
         .set('isloading', false)
         .set('isloading', true)
-        .set('errors', action.error);
+        .set('errors', action.error)
+        .set('book', null);
         case  ADD_TO_COLLECTION:
         return state 
         .set('inCollection', true)

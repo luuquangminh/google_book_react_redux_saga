@@ -1,5 +1,5 @@
 
-const request = window.indexedDB.open('booksCollection', 2)
+const request = window.indexedDB.open('booksCollection', 3)
 let db = null;
 request.onsuccess = (event) =>{
     db = request.result;
@@ -9,6 +9,7 @@ request.onupgradeneeded = (event) => {
     db = event.target.result
     db.createObjectStore('books', {
         autoIncrement: true,
+        keyPath: 'id'
     })
 }
 export function checkInCollection(bookId) {

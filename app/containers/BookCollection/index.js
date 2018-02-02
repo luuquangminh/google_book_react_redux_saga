@@ -15,6 +15,7 @@ import injectSaga from 'utils/injectSaga';
 import H2 from 'components/H2';
 import saga from './saga';
 import reducer from './reducer';
+import { Helmet } from 'react-helmet';
 import BookList from '../BookPage/components/BookList';
 
 import { loadBookCollectionRepos } from './actions';
@@ -27,9 +28,14 @@ export class BookCollection extends Component {
       //console.log(this.props.bookCollections);
     return (
       <div>
+      <Helmet>
+      <title>Collections</title>
+      <meta name="description" content="Feature page of React.js Boilerplate application" />
+    </Helmet>
+      <div>
         <BookList books={this.props.bookCollections} />
       </div>
-
+      </div>
     );
   }
 }

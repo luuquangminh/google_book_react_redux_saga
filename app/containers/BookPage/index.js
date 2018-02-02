@@ -27,7 +27,6 @@ export class BookPage extends Component {
     return (
       <div>
         <H2>
-
         </H2>
         <SearchBox search={(term) => this.searchClick(term)} loading={this.props.isLoading} />
         <BookList books={this.props.books} />

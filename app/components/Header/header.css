@@ -1,8 +1,13 @@
 Nav{
     background: rgb(0, 188, 212)!important;
     font-size: 200px !important;
+    text-decoration: none !important;
 }
+li a a:hover {
+    background: transparent;
 
-Link{
-   background:  red !important;
+}
+nav ul a, nav .brand-logo, nav a {
+    background: transparent;
+    text-decoration: none !important;
 }
