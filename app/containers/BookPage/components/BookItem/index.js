@@ -1,16 +1,15 @@
 
 import { Card } from 'react-materialize';
 import { Col } from 'react-bootstrap';
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 import PropTypes from 'prop-types';
 
 
-const BookItem = ({book, fullVersion,})=> {
-    return (
+const BookItem = ({ book, fullVersion }) => (
       (<Col md={4}>
-        <Card className="large">
+        <Card className="medium">
           <strong><LinesEllipsis
             text={book.volumeInfo.title}
             maxLine="2"
@@ -28,13 +27,7 @@ const BookItem = ({book, fullVersion,})=> {
               alt={book.volumeInfo.title}
             />
           )}
-          <LinesEllipsis
-            text={book.volumeInfo.description}
-            maxLine="5"
-            ellipsis="..."
-            trimRight
-            basedOn="letters"
-          />
+
           {fullVersion
             ? ''
             : (
@@ -44,7 +37,6 @@ const BookItem = ({book, fullVersion,})=> {
         </Card>
       </Col>)
     );
-  }
 
 BookItem.propTypes = {
   book: PropTypes.oneOfType([

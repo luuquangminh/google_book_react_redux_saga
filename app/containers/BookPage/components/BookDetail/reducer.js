@@ -47,12 +47,12 @@ function bookDetailReducer(state = initialState, action) {
         .set('isloading', true)
         .set('errors', action.error)
         .set('book', null);
-        case  ADD_TO_COLLECTION:
-        return state 
-        .set('inCollection', true)
-        case  REMOVE_FROM_COLLECTION:
-        return state 
-        .set('inCollection', false)
+    case ADD_TO_COLLECTION:
+      return state
+        .set('inCollection', true);
+    case REMOVE_FROM_COLLECTION:
+      return state
+        .set('inCollection', false);
     default:
       return state;
   }

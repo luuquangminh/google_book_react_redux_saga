@@ -1,11 +1,7 @@
 Nav{
-    background: rgb(0, 188, 212)!important;
+    background:#5DBCD2!important;
     font-size: 200px !important;
     text-decoration: none !important;
-}
-li a a:hover {
-    background: transparent;
-
 }
 nav ul a, nav .brand-logo, nav a {
     background: transparent;

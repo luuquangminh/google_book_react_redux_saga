@@ -10,31 +10,30 @@ import { connect } from 'react-redux';
 import injectReducer from 'utils/injectReducer';
 import { compose, bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { DAEMON } from 'utils/constants';
 import injectSaga from 'utils/injectSaga';
-import H2 from 'components/H2';
 import saga from './saga';
 import reducer from './reducer';
-import { Helmet } from 'react-helmet';
 import BookList from '../BookPage/components/BookList';
 
 import { loadBookCollectionRepos } from './actions';
-import { makeSelectBookCollection} from '../App/selectors';
+import { makeSelectBookCollection } from '../App/selectors';
 export class BookCollection extends Component {
-    componentWillMount(){
-        this.props.actions.loadBookCollectionRepos();
-    }
+  componentWillMount() {
+    this.props.actions.loadBookCollectionRepos();
+  }
   render() {
-      //console.log(this.props.bookCollections);
+      // console.log(this.props.bookCollections);
     return (
       <div>
-      <Helmet>
-      <title>Collections</title>
-      <meta name="description" content="Feature page of React.js Boilerplate application" />
-    </Helmet>
-      <div>
-        <BookList books={this.props.bookCollections} />
-      </div>
+        <Helmet>
+          <title>Collections</title>
+          <meta name="description" content="Feature page of React.js Boilerplate application" />
+        </Helmet>
+        <div>
+          <BookList books={this.props.bookCollections} />
+        </div>
       </div>
     );
   }
@@ -56,10 +55,10 @@ const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({ loadBookCollectionRepos }, dispatch),
 });
 const mapStateToProps = createStructuredSelector({
-bookCollections: makeSelectBookCollection(),
+  bookCollections: makeSelectBookCollection(),
 });
 const withReducer = injectReducer({ key: 'bookCollection', reducer });
 const withSaga = injectSaga({ key: 'bookCollection', saga, mode: DAEMON });
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(  withSaga, withConnect, withReducer)(BookCollection);
+export default compose(withSaga, withConnect, withReducer)(BookCollection);

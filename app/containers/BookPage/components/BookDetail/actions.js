@@ -36,15 +36,15 @@ export function loadBookDetailReposLoaded() {
     type: LOAD_BOOK_DETAIL_REPOS_LOADED,
   };
 }
-export function addToCollection(book){
-    return{
-        type: ADD_TO_COLLECTION,
-        book
-    }
+export function addToCollection(book) {
+  return {
+    type: ADD_TO_COLLECTION,
+    book,
+  };
 }
-export function removeFromCollection(book){
-    return{
-        type: REMOVE_FROM_COLLECTION,
-        book
-    }
+export function removeFromCollection(book) {
+  return {
+    type: REMOVE_FROM_COLLECTION,
+    book,
+  };
 }

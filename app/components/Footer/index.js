@@ -5,21 +5,17 @@ import A from 'components/A';
 import LocaleToggle from 'containers/LocaleToggle';
 import Wrapper from './Wrapper';
 import messages from './messages';
-
+import Img from './Img';
+import Banner from './books.png';
 function Footer() {
   return (
     <Wrapper>
       <section>
-        <FormattedMessage {...messages.licenseMessage} />
-      </section>
-      <section>
-        <LocaleToggle />
-      </section>
-      <section>
+        <Img src={Banner} alt="react-boilerplate - Logo" />
         <FormattedMessage
           {...messages.authorMessage}
           values={{
-            author:"Luu Minh"
+            author: 'Luu Minh',
           }}
         />
       </section>
